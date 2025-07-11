@@ -1,17 +1,6 @@
-/*!*************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/main.scss ***!
-  \*************************************************************************************************************/
-/**
-Theme Name: Astra Child Noshibari
-Author: Alberto Moral
-Author URI: https://noshibari.com/about
-Description: Astra child theme for Noshibari / Art
-Version: 1.0.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: astra-child-noshibari
-Template: astra
-*/
+/*!*****************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/app/scss/main.scss ***!
+  \*****************************************************************************************************************/
 .entry-content h1,
 .entry-content h2,
 .entry-content h3,
@@ -441,79 +430,6 @@ body.volvemos-pronto .wp-block-cover {
 }
 .woocommerce-js .ast-woocommerce-container div.product .woocommerce-tabs {
   padding-top: 0 !important;
-}
-
-.shortcode.jitsi {
-  max-width: 300px;
-  margin: 0 auto;
-}
-.shortcode.jitsi form {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 8px;
-}
-.shortcode.jitsi form .field {
-  flex: 1;
-  width: 100%;
-}
-.shortcode.jitsi form .field input {
-  padding: 8px;
-  border-radius: 4px;
-  height: 36px;
-  width: 100%;
-  max-width: 240px;
-  text-align: center;
-  display: block;
-  margin: 0 auto;
-}
-.shortcode.jitsi form .field input:valid {
-  border: solid 2px rgb(0, 158, 8);
-}
-.shortcode.jitsi form .field input:invalid:required {
-  border: solid 2px rgb(158, 11, 0);
-}
-.shortcode.jitsi form .field label {
-  display: block;
-  margin: 8px 0 0 0;
-  padding: 8px 16px;
-  border-radius: 4px;
-  background-color: #ffffff;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-}
-.shortcode.jitsi form .field label.error {
-  color: rgb(158, 11, 0);
-}
-.shortcode.jitsi form .wp-block-button {
-  cursor: pointer;
-}
-.shortcode.jitsi form .wp-block-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.shortcode.jitsi .message {
-  display: none;
-  padding: 8px 16px;
-  text-align: center;
-}
-.shortcode.jitsi .message.success {
-  color: rgb(0, 158, 8);
-}
-.shortcode.jitsi .message.error {
-  color: rgb(158, 11, 0);
-}
-.shortcode.jitsi .message.warning {
-  color: rgb(202, 107, 18);
-}
-
-#conferencewrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 99;
 }
 
 /*# sourceMappingURL=main.css.map*/

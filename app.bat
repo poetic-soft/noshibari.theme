@@ -1,1 +1,1 @@
-call webpack
+call webpack --env=app

@@ -1,49 +1,11 @@
+import startjitsi from './react'
+
 export default $ => {
 
-  const openConference = (credentials)=> {
+  const $jitsi = $('.shortcode.jitsi')
+  if($jitsi.length) {    
 
-    console.log(credentials.jwt.data)
-    
-    const script = document.createElement('script');
-    script.src = `https://8x8.vc/${credentials.appid}/external_api.js`;
-    script.type = 'text/javascript';
-    script.async = true; 
-
-    script.onload = () => {
-
-       $('body')
-      .css('overflow', 'hidden')
-      .append(`
-        <div id="conferencewrapper">
-        </div>
-      `)
-      const $conferencewrapper = $('#conferencewrapper')
-
-      const api = new JitsiMeetExternalAPI(
-        `8x8.vc`, 
-        {
-          room: `${credentials.appid}/${credentials.room}`,
-          width: '100%',
-          height: '100%',
-          parentNode: $conferencewrapper[0],
-          jwt: credentials.jwt.data,
-          onload: () => { 'READY' }
-        }
-      )
-    };
-
-    script.onerror = () => {
-
-      console.error('Error al cargar el script.');
-    };
-
-    document.head.appendChild(script);
-  }
-
-  const $subscribe = $('.shortcode.jitsi')
-  if($subscribe.length) {    
-
-    $subscribe
+    $jitsi
     .each(function() {
 
       const $this = $(this)
@@ -131,7 +93,12 @@ export default $ => {
               $inputemail.val('')
 
               response.json()
-              .then(credentials => openConference(credentials))
+              .then(
+                credentials => startjitsi(
+                  $,
+                  credentials
+                )
+              )
               
             }, 2000)
           })

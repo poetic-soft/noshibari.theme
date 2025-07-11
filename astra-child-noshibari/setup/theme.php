@@ -40,29 +40,7 @@ add_action(
       </script>
     <?php
   }
-);   
-
-/**
- * Admin enqueue
- */
-
-add_action( 
-	'admin_enqueue_scripts', 
-	function () {
-
-    wp_enqueue_script(
-      'astra-child-noshibari-theme-admin-js', 
-      get_stylesheet_directory_uri() . '/js-css/admin.js',
-      array(
-        'wp-data',
-        'jquery'
-      ), 
-      filemtime(get_stylesheet_directory() . '/js-css/admin.js'),
-      true
-    );
-	}, 
-	999 
-);
+); 
 
 /* Theme setup */
 

@@ -3,6 +3,20 @@
 require_once(get_stylesheet_directory() . '/tools/firebase/vendor/autoload.php');
 use Firebase\JWT\JWT;
 
+function noshibari_slugify($text) {
+  
+  $text = strtolower($text);
+  $text = preg_replace('~[^\\pL\\d]+~u', '-', $text);
+  $text = iconv('utf-8', 'us-ascii//TRANSLIT//IGNORE', $text);
+  $text = preg_replace('~-+~', '-', $text);
+  if (empty($text)) {
+      
+    return 'n-a';
+  }
+  
+  return $text;
+}
+
 function noshibari_jitsi_jwt(WP_REST_Request $req) {
   
   $res = new WP_REST_Response();
@@ -20,15 +34,39 @@ function noshibari_jitsi_jwt(WP_REST_Request $req) {
     $private_key = file_get_contents(__DIR__ . '/jitsi.pk');
 
     $params = $req->get_params();
-    $email = $params['mail'];
+    $email = $params['email'];
     $title = $params['title'];
+    $userid = noshibari_slugify($email);
+    $username = ucwords(
+      str_replace(
+        '-', 
+        ' ', 
+        noshibari_slugify(
+          strstr(
+            $email, 
+            "@", 
+            true
+          )
+        )
+      )
+    );
+
+    // $res->set_data([
+    //   'email' => $email,
+    //   'title' => $title,
+    //   'userid' => $userid,
+    //   'username' => $username,
+    //   'pkey' => $private_key
+    // ]);
+
+    // return $res;
 
     $API_KEY = $apikey;
     $APP_ID = $appid; 
     $USER_EMAIL = $email;
-    $USER_NAME = $email;
+    $USER_NAME = $username;
     $USER_IS_MODERATOR = true;
-    $USER_AVATAR_URL = 'https://noshibari.art/wp-content/uploads/sites/5/2022/02/noshibari-art-logo-c-300x300.jpg';
+    $USER_AVATAR_URL = 'https://noshibari.art/wp-content/uploads/sites/5/2025/04/noshibari-art-logo-e.png';
     $USER_ID = $email;
     $LIVESTREAMING_IS_ENABLED = true;
     $RECORDING_IS_ENABLED = true;
@@ -103,7 +141,13 @@ function noshibari_jitsi_jwt(WP_REST_Request $req) {
       $private_key
     );
 
-    $res->set_data($token);
+    $res->set_data([
+      'appid' => $appid,
+      'jwt' => $token,
+      'room' => $title,
+      'userid' => $userid,
+      'username' => $username
+    ]);
 
   } catch (Exception $e) {
     
@@ -111,11 +155,7 @@ function noshibari_jitsi_jwt(WP_REST_Request $req) {
     $res->set_data($e->getMessage());
   }
 
-  return [
-    'appid' => $appid,
-    'jwt' => $res,
-    'room' => $title
-  ];
+  return $res;
 }
 
 add_action(

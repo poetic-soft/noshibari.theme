@@ -88,6 +88,7 @@ export default $ => {
 
               $message.hide()
               $form.show()
+              $inputemail.val('')
               
             }, 4000)
           })

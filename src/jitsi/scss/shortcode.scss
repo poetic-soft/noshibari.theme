@@ -76,10 +76,3 @@
     &.warning { color: $color-warning; }
   }
 }
-
-#conferencewrapper {
-
-  @include absolutebox();
-  background-color: $color-dark-transparent-a;
-  z-index: 99;
-}

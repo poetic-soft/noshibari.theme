@@ -1,0 +1,53 @@
+#conferencewrapper {
+
+  @include fixedbox();
+  background-color: $color-light-transparent-a;
+  z-index: 99;
+
+  #jitsiwrapper {
+
+    @include absolutebox(
+      10px,
+      10px,
+      10px,
+      10px
+    );
+
+    [id^="jitsiMeeting"] {
+
+      @include absolutebox();
+    }
+  }
+
+  #jitsiclose {
+
+    width: $space * 4;
+    height: $space * 4;
+    position: absolute;
+    top: $space * 3;
+    left: $space * 3;
+    background-color: $color-light;
+    border-radius: $space * 0.5;
+    cursor: pointer;
+
+    .bar {
+
+      width: $space * 2;
+      height: $space * 0.5;
+      background-color: $color-dark;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      &.a {
+        
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      }
+
+      &.b {
+        
+        transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+      }
+    }
+  }
+}

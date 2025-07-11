@@ -17225,10 +17225,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
-/***/ "./src/app/flickitygallery.js":
-/*!************************************!*\
-  !*** ./src/app/flickitygallery.js ***!
-  \************************************/
+/***/ "./src/app/js/flickitygallery.js":
+/*!***************************************!*\
+  !*** ./src/app/js/flickitygallery.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -17258,10 +17258,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/app/flickityhero.js":
-/*!*********************************!*\
-  !*** ./src/app/flickityhero.js ***!
-  \*********************************/
+/***/ "./src/app/js/flickityhero.js":
+/*!************************************!*\
+  !*** ./src/app/js/flickityhero.js ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -17304,10 +17304,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/app/fullgallery.js":
-/*!********************************!*\
-  !*** ./src/app/fullgallery.js ***!
-  \********************************/
+/***/ "./src/app/js/fullgallery.js":
+/*!***********************************!*\
+  !*** ./src/app/js/fullgallery.js ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -17400,10 +17400,10 @@ sonido.loop = true;
 
 /***/ }),
 
-/***/ "./src/app/inviewport.js":
-/*!*******************************!*\
-  !*** ./src/app/inviewport.js ***!
-  \*******************************/
+/***/ "./src/app/js/inviewport.js":
+/*!**********************************!*\
+  !*** ./src/app/js/inviewport.js ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -17454,139 +17454,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/app/jitsi.js":
-/*!**************************!*\
-  !*** ./src/app/jitsi.js ***!
-  \**************************/
+/***/ "./src/app/js/main.js":
+/*!****************************!*\
+  !*** ./src/app/js/main.js ***!
+  \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function ($) {
-  var openConference = function openConference(credentials) {
-    console.log(credentials.jwt.data);
-    var script = document.createElement('script');
-    script.src = "https://8x8.vc/".concat(credentials.appid, "/external_api.js");
-    script.type = 'text/javascript';
-    script.async = true;
-
-    script.onload = function () {
-      $('body').css('overflow', 'hidden').append("\n        <div id=\"conferencewrapper\">\n        </div>\n      ");
-      var $conferencewrapper = $('#conferencewrapper');
-      var api = new JitsiMeetExternalAPI("8x8.vc", {
-        room: "".concat(credentials.appid, "/").concat(credentials.room),
-        width: '100%',
-        height: '100%',
-        parentNode: $conferencewrapper[0],
-        jwt: credentials.jwt.data,
-        onload: function onload() {
-          'READY';
-        }
-      });
-    };
-
-    script.onerror = function () {
-      console.error('Error al cargar el script.');
-    };
-
-    document.head.appendChild(script);
-  };
-
-  var $subscribe = $('.shortcode.jitsi');
-
-  if ($subscribe.length) {
-    $subscribe.each(function () {
-      var $this = $(this);
-      var $form = $this.find('form');
-      var $inputemail = $form.find('input#email');
-      var $inputtitle = $form.find('input#title');
-      var $button = $form.find('.wp-block-button');
-      var $message = $this.find('.message');
-      var messageinvalid = $inputemail.data('message-invalid');
-      var messageerror = $inputemail.data('message-error');
-      var messageok = $inputemail.data('message-ok');
-      $form.validate({
-        messages: {
-          email: {
-            email: messageinvalid
-          }
-        }
-      });
-      $inputemail.on('keyup', function () {
-        var $this = $(this);
-
-        if ($this.valid()) {
-          $button.prop('disabled', false);
-        } else {
-          $button.prop('disabled', true);
-        }
-      });
-      $button.on('click', function () {
-        $form.hide();
-        $message.removeClass('warning error success');
-        $message.html('Conectando...');
-        $message.addClass('warning');
-        $message.show();
-        fetch('/wp-json/noshibari/jitsi/jwt', {
-          method: 'POST',
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            email: $inputemail.val(),
-            title: $inputtitle.val()
-          })
-        }).then(function (response) {
-          $message.removeClass('warning error success');
-
-          if (response.status != 200) {
-            $message.html(messageerror);
-            $message.addClass('error');
-          } else {
-            $message.html(messageok);
-            $message.addClass('success');
-          }
-
-          $message.show();
-          setTimeout(function () {
-            $message.hide();
-            $form.show();
-            $inputemail.val('');
-            response.json().then(function (credentials) {
-              return openConference(credentials);
-            });
-          }, 2000);
-        });
-        return false;
-      });
-    });
-  }
-});
-
-/***/ }),
-
-/***/ "./src/app/main.js":
-/*!*************************!*\
-  !*** ./src/app/main.js ***!
-  \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _inviewport__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./inviewport */ "./src/app/inviewport.js");
-/* harmony import */ var _subscribe__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./subscribe */ "./src/app/subscribe.js");
-/* harmony import */ var _qa__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./qa */ "./src/app/qa.js");
-/* harmony import */ var _flickitygallery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./flickitygallery */ "./src/app/flickitygallery.js");
-/* harmony import */ var _flickityhero__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./flickityhero */ "./src/app/flickityhero.js");
-/* harmony import */ var _queryslider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./queryslider */ "./src/app/queryslider.js");
-/* harmony import */ var _fullgallery__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./fullgallery */ "./src/app/fullgallery.js");
-/* harmony import */ var _retoques__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./retoques */ "./src/app/retoques.js");
-/* harmony import */ var _jitsi__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./jitsi */ "./src/app/jitsi.js");
+/* harmony import */ var _inviewport__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./inviewport */ "./src/app/js/inviewport.js");
+/* harmony import */ var _subscribe__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./subscribe */ "./src/app/js/subscribe.js");
+/* harmony import */ var _qa__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./qa */ "./src/app/js/qa.js");
+/* harmony import */ var _flickitygallery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./flickitygallery */ "./src/app/js/flickitygallery.js");
+/* harmony import */ var _flickityhero__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./flickityhero */ "./src/app/js/flickityhero.js");
+/* harmony import */ var _queryslider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./queryslider */ "./src/app/js/queryslider.js");
+/* harmony import */ var _fullgallery__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./fullgallery */ "./src/app/js/fullgallery.js");
+/* harmony import */ var _retoques__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./retoques */ "./src/app/js/retoques.js");
 // import canva from './canva'
-
 
 
 
@@ -17606,15 +17490,14 @@ __webpack_require__.r(__webpack_exports__);
   (0,_queryslider__WEBPACK_IMPORTED_MODULE_5__["default"])($);
   (0,_fullgallery__WEBPACK_IMPORTED_MODULE_6__["default"])($);
   (0,_retoques__WEBPACK_IMPORTED_MODULE_7__["default"])($);
-  (0,_jitsi__WEBPACK_IMPORTED_MODULE_8__["default"])($);
 })(jQuery);
 
 /***/ }),
 
-/***/ "./src/app/qa.js":
-/*!***********************!*\
-  !*** ./src/app/qa.js ***!
-  \***********************/
+/***/ "./src/app/js/qa.js":
+/*!**************************!*\
+  !*** ./src/app/js/qa.js ***!
+  \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -17690,10 +17573,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/app/queryslider.js":
-/*!********************************!*\
-  !*** ./src/app/queryslider.js ***!
-  \********************************/
+/***/ "./src/app/js/queryslider.js":
+/*!***********************************!*\
+  !*** ./src/app/js/queryslider.js ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -17734,10 +17617,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/app/retoques.js":
-/*!*****************************!*\
-  !*** ./src/app/retoques.js ***!
-  \*****************************/
+/***/ "./src/app/js/retoques.js":
+/*!********************************!*\
+  !*** ./src/app/js/retoques.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -17762,10 +17645,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/app/subscribe.js":
-/*!******************************!*\
-  !*** ./src/app/subscribe.js ***!
-  \******************************/
+/***/ "./src/app/js/subscribe.js":
+/*!*********************************!*\
+  !*** ./src/app/js/subscribe.js ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -17833,6 +17716,7 @@ __webpack_require__.r(__webpack_exports__);
           setTimeout(function () {
             $message.hide();
             $form.show();
+            $inputemail.val('');
           }, 4000);
         });
         return false;
@@ -17843,10 +17727,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/scss/main.scss":
-/*!****************************!*\
-  !*** ./src/scss/main.scss ***!
-  \****************************/
+/***/ "./src/app/scss/main.scss":
+/*!********************************!*\
+  !*** ./src/app/scss/main.scss ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -17956,13 +17840,13 @@ __webpack_require__.r(__webpack_exports__);
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
-/*!************************************************************************************************************************!*\
-  !*** ./node_modules/webpack-polyfill-injector/src/loader.js?{"modules":["./src/app/main.js","./src/scss/main.scss"]}! ***!
-  \************************************************************************************************************************/
+/*!*******************************************************************************************************************************!*\
+  !*** ./node_modules/webpack-polyfill-injector/src/loader.js?{"modules":["./src/app/js/main.js","./src/app/scss/main.scss"]}! ***!
+  \*******************************************************************************************************************************/
 // Webpack Polyfill Injector
 function main() {
-    __webpack_require__(/*! ./src/app/main.js */ "./src/app/main.js");
-    __webpack_require__(/*! ./src/scss/main.scss */ "./src/scss/main.scss");
+    __webpack_require__(/*! ./src/app/js/main.js */ "./src/app/js/main.js");
+    __webpack_require__(/*! ./src/app/scss/main.scss */ "./src/app/scss/main.scss");
 }
 if (function() {
     return /* Array.from */ !("from"in Array&&function(){try{return Array.from({length:-Infinity}),"a"===Array.from(new self.Set(["a"]))[0]&&"a"===Array.from(new self.Map([["a","one"]]))[0][0]}catch(r){return!1}}()

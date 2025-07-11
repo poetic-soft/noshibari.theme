@@ -7,7 +7,6 @@ import flickityhero from './flickityhero'
 import queryslider from './queryslider'
 import fullgallery from './fullgallery'
 import retoques from './retoques'
-import jitsi from './jitsi'
 
 (function($) {
 
@@ -20,6 +19,5 @@ import jitsi from './jitsi'
   queryslider($)
   fullgallery($)
   retoques($)
-  jitsi($)
 
 })(jQuery)

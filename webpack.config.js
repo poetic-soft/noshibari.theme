@@ -10,10 +10,14 @@ const themeplublic = '/wp-content/themes/' + themename
 
 module.exports = env => { 
 
+  const input = Object.keys(env)[2] || ''
+  const params = input.split('-')
+  const section = params[0] || 'app' // jitsi
+
   const paths ={
-    entryjs: './src/app/main.js',
-    entryscss: './src/scss/main.scss',
-    output: destdir  + '/js-css',
+    entryjs: `./src/${ section }/js/main.js`,
+    entryscss: `./src/${ section }/scss/main.scss`,
+    output: destdir  + `/front/${ section }`,
     public: themeplublic,
     cssfilename: 'main.css'
   }
