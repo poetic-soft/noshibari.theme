@@ -15,7 +15,7 @@ export default $ => {
       const $this = $(this)
 
       $this.flickity({
-        autoPlay: false,
+        autoPlay: 4000,
         prevNextButtons: false,
         wrapAround: true,
         pageDots: false,

@@ -1,0 +1,30 @@
+.woocommerce-js {
+
+  .ast-woocommerce-container {
+
+    margin-top: $space * 6;
+  
+    div.product {  
+
+      .woocommerce-product-gallery {
+
+        margin-bottom: 0 !important;
+
+        .flex-viewport {
+
+          
+        }
+      }
+
+      .summary.entry-summary {
+
+        margin-bottom: 0 !important;      
+      }
+
+      .woocommerce-tabs {
+
+        padding-top: 0 !important;
+      }
+    }
+  }
+}

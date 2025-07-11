@@ -72,19 +72,27 @@ add_post_type_support( 'page', 'excerpt' );
 
 require_once(dirname(__FILE__) . '/cleanhead.php');
 
-/* Disable Product comments */
+/* Woocommerce */
 
-add_filter( 
-  'woocommerce_product_tabs', 
-  function ($tabs) {
+// texts
 
-    unset($tabs['reviews']);
-    return $tabs;
-  }, 
-  98
+add_filter(
+  'woocommerce_product_add_to_cart_text',
+  function($text) {
+
+    return 'Reservar'; 
+  }
 );
 
-/* Enable gutenberg for woocommerce */
+add_filter( 
+  'woocommerce_product_single_add_to_cart_text', 
+  function() {
+
+    return 'Reservar';
+  }
+);
+
+// Enable gutenberg for woocommerce
 
 add_filter( 
   'use_block_editor_for_post_type', 
@@ -99,6 +107,18 @@ add_filter(
   }, 
   10, 
   2 
+);
+
+// Disable Product comments
+
+add_filter( 
+  'woocommerce_product_tabs', 
+  function ($tabs) {
+
+    unset($tabs['reviews']);
+    return $tabs;
+  }, 
+  98
 );
 
 /* Query loop */

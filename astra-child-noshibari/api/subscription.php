@@ -10,7 +10,7 @@ function noshibari_subscribe( WP_REST_Request $req ) {
     $title = $req->get_param('title');
     
     $mailsent = wp_mail(
-      'noshibari@gmail.com',
+      'noshibariart@gmail.com',
       'Subscription email',
       $email . ' ' . $title
     );

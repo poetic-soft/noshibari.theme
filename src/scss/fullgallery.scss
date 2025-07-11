@@ -1,0 +1,51 @@
+#fullgallery {
+
+  @include absolutebox();
+  background-color: $color-dark;
+
+  .container {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $color-dark;
+    cursor: url('~assets/nextimg.png'), auto;
+    z-index: 0;
+
+    .slide {
+
+      @include  absolutebox();
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: $color-dark;
+
+      opacity: 0;
+      transition-property: opacity;
+      transition-duration: 1s;
+
+      &.visible {
+
+        opacity: 1;
+      }
+    }
+  }
+
+  .close {
+
+    position: absolute;
+    top: $space;
+    left: 50%;
+    transform: translateX(-50%);
+    width: $space * 3;
+    height: $space * 3;
+    background-image: url('~assets/close-window.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 1;
+  }
+}

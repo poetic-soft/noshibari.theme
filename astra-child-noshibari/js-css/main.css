@@ -249,6 +249,64 @@ body.volvemos-pronto .wp-block-cover {
   color: rgb(202, 107, 18);
 }
 
+.shortcode.qa {
+  max-width: 300px;
+  margin: 0 auto;
+}
+.shortcode.qa form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+.shortcode.qa form .field {
+  width: 100%;
+}
+.shortcode.qa form .field textarea {
+  padding: 8px;
+  display: block;
+  width: 100%;
+  border: solid 2px rgb(158, 11, 0);
+}
+.shortcode.qa form .field textarea.valid {
+  border: solid 2px rgb(0, 158, 8);
+}
+.shortcode.qa form .field label {
+  display: block;
+  margin: 8px 0 0 0;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+.shortcode.qa form .field label.error {
+  color: rgb(158, 11, 0);
+}
+.shortcode.qa form .wp-block-button {
+  cursor: pointer;
+  width: fit-content;
+}
+.shortcode.qa form .wp-block-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.shortcode.qa .message {
+  display: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+.shortcode.qa .message.success {
+  color: rgb(0, 158, 8);
+}
+.shortcode.qa .message.error {
+  color: rgb(158, 11, 0);
+}
+.shortcode.qa .message.warning {
+  color: rgb(202, 107, 18);
+}
+
 .wp-block-gallery.slider {
   height: 50vh;
   position: relative;
@@ -279,6 +337,7 @@ body.volvemos-pronto .wp-block-cover {
   position: relative;
   margin-bottom: 0;
   overflow: hidden;
+  max-width: 80%;
 }
 .wp-block-group.slider > .wp-block-group__inner-container {
   position: absolute;
@@ -297,6 +356,7 @@ body.volvemos-pronto .wp-block-cover {
 }
 .wp-block-group.slider > .wp-block-group__inner-container .flickity-viewport .flickity-slider .wp-block-cover .wp-block-cover__inner-container .wp-block-group {
   width: fit-content;
+  max-width: 80%;
 }
 
 .wp-block-query .wp-block-post-template {
@@ -318,6 +378,142 @@ body.volvemos-pronto .wp-block-cover {
 }
 .wp-block-query.slider ul.wp-block-post-template .flickity-viewport .flickity-slider .wp-block-post .wp-block-group p {
   margin: 0;
+}
+
+#fullgallery {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+}
+#fullgallery .container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  cursor: url(/wp-content/themes/astra-child-noshibari/assets/nextimg.png), auto;
+  z-index: 0;
+}
+#fullgallery .container .slide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #000000;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 1s;
+}
+#fullgallery .container .slide.visible {
+  opacity: 1;
+}
+#fullgallery .close {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  background-image: url(/wp-content/themes/astra-child-noshibari/assets/close-window.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.woocommerce-js .ast-woocommerce-container {
+  margin-top: 48px;
+}
+.woocommerce-js .ast-woocommerce-container div.product .woocommerce-product-gallery {
+  margin-bottom: 0 !important;
+}
+.woocommerce-js .ast-woocommerce-container div.product .summary.entry-summary {
+  margin-bottom: 0 !important;
+}
+.woocommerce-js .ast-woocommerce-container div.product .woocommerce-tabs {
+  padding-top: 0 !important;
+}
+
+.shortcode.jitsi {
+  max-width: 300px;
+  margin: 0 auto;
+}
+.shortcode.jitsi form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+}
+.shortcode.jitsi form .field {
+  flex: 1;
+  width: 100%;
+}
+.shortcode.jitsi form .field input {
+  padding: 8px;
+  border-radius: 4px;
+  height: 36px;
+  width: 100%;
+  max-width: 240px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+.shortcode.jitsi form .field input:valid {
+  border: solid 2px rgb(0, 158, 8);
+}
+.shortcode.jitsi form .field input:invalid:required {
+  border: solid 2px rgb(158, 11, 0);
+}
+.shortcode.jitsi form .field label {
+  display: block;
+  margin: 8px 0 0 0;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+.shortcode.jitsi form .field label.error {
+  color: rgb(158, 11, 0);
+}
+.shortcode.jitsi form .wp-block-button {
+  cursor: pointer;
+}
+.shortcode.jitsi form .wp-block-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.shortcode.jitsi .message {
+  display: none;
+  padding: 8px 16px;
+  text-align: center;
+}
+.shortcode.jitsi .message.success {
+  color: rgb(0, 158, 8);
+}
+.shortcode.jitsi .message.error {
+  color: rgb(158, 11, 0);
+}
+.shortcode.jitsi .message.warning {
+  color: rgb(202, 107, 18);
+}
+
+#conferencewrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
 }
 
 /*# sourceMappingURL=main.css.map*/

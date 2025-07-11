@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>NOSHIBARI TONE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style>
+
+
+    </style>
+  </head>
+  <body>
+    <div class="checking">Checkeando: <span id="checkingmail"></span></div>
+    <div class="result">
+      <div class="label">Válidos</div>
+      <div id="validmails"></div>
+      <div class="label">No válidos</div>
+      <div id="invalidmails"></div>
+    </div>
+    <script>
+
+      const checkingmail = document.getElementById('checkingmail')
+      const validmails = document.getElementById('validmails')
+      const invalidmails = document.getElementById('invalidmails')
+
+      let maillist
+      let validmailslist = ''
+      let invalidmailslist = ''
+      let actualmail = 0
+
+      const checkmail = () => {
+
+        const maildirection = maillist[actualmail]
+        checkingmail.innerHTML = maildirection
+
+        setTimeout(() => {
+
+          fetch(
+            '/wp-json/noshibari/maillist/checkmail',
+            {
+              method: 'POST',
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                mail: maildirection
+              })
+            }
+          )
+          .then(response => response.json().then(check => {
+
+            console.log(check)
+
+            if(check.valid) {
+
+              validmailslist += '<div class="checkedmail">' + maildirection + '</div>'
+              validmails.innerHTML = validmailslist
+              
+            } else {
+
+              invalidmailslist += '<div class="checkedmail">' + maildirection + '</div>'
+              invalidmails.innerHTML = invalidmailslist
+            }
+
+            actualmail++
+            if(actualmail < maillist.length - 1) {
+
+              checkmail()
+
+            } else {
+
+              console.log('end')
+            }
+          }))
+        }, 1)          
+      }
+
+      fetch('/wp-json/noshibari/maillist/list')
+      .then(response => response.json().then(list => {
+
+        maillist = list.unique
+
+        checkmail()
+      }))
+
+    </script>
+  </body>
+</html>

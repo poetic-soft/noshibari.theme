@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "noshibari-art-1703019679358",
+  "private_key_id": "66664b4bb927278487400d48b8e79f2cffe16fe9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDKyHQxdzBvUCf0\nmBE1C8Gs1tEAwNM8w8yWVo0tQ7NyxipdmFNO9wBZ0JY/kJzscZYeR5RkpkWxq/Ds\nN+YcN/fqN93kAG51br9ZLpsYSFdVvMBjKZB6ruAX6G/gslgRIpioqTt6R1xyruPl\nc+WZYDEJpOO7Y450gqM0pD84G6xe4czIGWtuE0o6y1FWizctcSSKI7Z+BcD5doD5\nPwx8vPrsSqzYp3U2A9SxnB3tI7nD1uqAZr8LJbHOQ7Vm8AuMqXMNab5E8n9lzJUt\nvA1uSaUKS9gOgM7DHPrW64/BUVFTIiTfvwbWQoDcuyXClDe9Uhl7PEQ/D/uXOqJR\nijqt6S2NAgMBAAECggEAAabQi9vcT79AzWQU8yFOTM7NTdJRCVUlqOtXlOymFpnG\nsUKPzWkhPjflSacEftlguOHp3h3LtbB38LGpyyd6aWWjUtdDl5X3LsenP13vEirZ\nYUvIUclaRyLFu7PuBv9vME58KIPBC+RHRTTGswrR17HqkJekNWg52cXLkFscJT+c\nZpFhNOxaTshhMu1F1cyK8rEFIP+2FBh1SHA5aCzq5nNDMY+liTYs8qJxg3pfUYTr\nG3tBRewl2Bq8HrSER/2zSlM3g54lnc1kRmjzqtjRu7ffAvIDfg90Dcjk/p7x5BsG\nHVyH3vhHhQw8oDZHKQYrmAoFakhBfeKm1uFCA/VKYQKBgQD8ZKx7kFWq4993FB42\na/yHLzBjqrSyYFQmHuC6ncNQtDwqqtFppouN9c+JOY7mQQFAG8MjhL4dCvEOj6Fx\n84R1G392+EK1R8ybgoHVPTzMs7yW64jP1dU3rJS/KU0LeHLKJdI56WRZJNSrPRoL\n9h7uOeFBDtyioJjEKbDRLF48oQKBgQDNrkqys0q+lYnbJs6Bxbn9VHF8v77xc5aa\nZqusPCIEwAIEnBNnHHkqwqVFW6+vbPKKXT1KqPs7iH6cZg6Wq0IQfDHtX/P+3XNS\nISGMFNcjzvW6zVEia+EpgDIKLYcPkFct19qbt++wellezSSXr6MZDuD+S3anu7Fz\nZge2Fvc9bQKBgQCGtKyiHjy6wngoM+KUJTpYZEUtTJS4h1UiK2TB9SWjUy6xjw3J\nl4vwLnufv8qW9abXMnoJ4PUexxI1NU9zZAcUAaMcOhBQdIutjBADYXWrw1oqKneQ\nhY4Q8tlI1aA7OQP7BAiZxAk80r12z1uxeqCzgMzKTkZPvesK9z1ZxpZdQQKBgEAj\nqu2hFZzrGws5RcqYM1C5hY5maQ/4gK1zePOD6QPcMITpeu97pJleC5XeaqHk8pmN\nS/C9U2MURI9XEBOSIk7ru9IPSxJeUnj5FfIOCa0D/AMdxcBbLeL4NCKSYfzLgTQt\njOFkcZ1x+e6jQFcBEXZd+nGybLUPxd17osn4zW7dAoGABiJoOJrhFoarVWTXNRtX\nQVT/M2F9uJ3jFCv+awYdtC6mGUMoRaZBRcO05RM0qN7eonOKRRU9dygHHzHs9zrW\nOpVwyZ9IeBha0RUWSo2p9dc66oi0DvimaJBLPRooSk6Tjl7FEzss+UiLo7SWoAkI\n2Ac5u878VOD41sw7zb8E+kg=\n-----END PRIVATE KEY-----\n",
+  "client_email": "noshibari-art-gsheets@noshibari-art-1703019679358.iam.gserviceaccount.com",
+  "client_id": "114023947179219661891",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/noshibari-art-gsheets%40noshibari-art-1703019679358.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

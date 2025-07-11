@@ -5,8 +5,6 @@ jQuery(document)
 
   setInterval(function () {
 
-    console.log('update')
-
     $.post(
       arpPageData.ajax_url, 
       {

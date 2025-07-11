@@ -1,0 +1,85 @@
+.shortcode.jitsi {
+
+  max-width: 300px;
+  margin: 0 auto;  
+
+  form {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: $space;
+
+    .field {
+
+      flex: 1;
+      width: 100%;
+
+      input {
+
+        padding: $space;
+        border-radius: $space * 0.5;
+        height: $space * 4.5;
+        width: 100%;
+        max-width: 240px;
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+
+        &:valid {
+
+          border: solid 2px $color-success;
+        }
+
+        &:invalid:required {
+
+          border: solid 2px $color-error;
+        }
+      }
+
+      label {
+
+        display: block;;
+        margin: $space 0 0 0;
+        padding: $space $space * 2;
+        border-radius: $space * 0.5;
+        background-color: $color-light;
+        box-shadow: 0 0 4px $color-dark-transparent-a;
+
+        &.error {
+
+          color: $color-error;
+        }
+      }
+    }
+
+    .wp-block-button {
+
+      cursor: pointer;
+
+      &:disabled {
+
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .message {
+
+    display: none;
+    padding: $space $space * 2;
+    text-align: center;
+
+    &.success { color: $color-success; }
+    &.error { color: $color-error; }
+    &.warning { color: $color-warning; }
+  }
+}
+
+#conferencewrapper {
+
+  @include absolutebox();
+  background-color: $color-dark-transparent-a;
+  z-index: 99;
+}
