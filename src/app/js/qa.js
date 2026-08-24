@@ -49,7 +49,7 @@ export default $ => {
           $message.show()
 
           fetch(
-            'https://noshibari.com/wp-json/noshibari/qa',
+            '/wp-json/noshibari/qa',
             {
               method: 'POST',
               headers: {

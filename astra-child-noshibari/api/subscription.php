@@ -32,6 +32,8 @@ add_action(
   'rest_api_init',
   function () {
 
+    error_log('api suscrip');
+
     register_rest_route(
       'noshibari',
       'subscribe',

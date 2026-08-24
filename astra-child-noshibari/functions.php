@@ -8,10 +8,10 @@
  * @since 1.0.0
  */
   
- require_once(dirname(__FILE__) . '/setup/main.php');  
- require_once(dirname(__FILE__) . '/api/main.php');   
- require_once(dirname(__FILE__) . '/shortcodes/main.php');
- require_once(dirname(__FILE__) . '/updater/main.php');
+require_once(dirname(__FILE__) . '/setup/main.php');  
+require_once(dirname(__FILE__) . '/api/main.php');   
+require_once(dirname(__FILE__) . '/shortcodes/main.php');
+require_once(dirname(__FILE__) . '/updater/main.php');
 
 
  

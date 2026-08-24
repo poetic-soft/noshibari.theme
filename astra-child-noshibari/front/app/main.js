@@ -17536,7 +17536,7 @@ __webpack_require__.r(__webpack_exports__);
         $message.html('Enviando...');
         $message.addClass('warning');
         $message.show();
-        fetch('https://noshibari.com/wp-json/noshibari/qa', {
+        fetch('/wp-json/noshibari/qa', {
           method: 'POST',
           headers: {
             "Content-Type": "application/json"
@@ -17692,7 +17692,7 @@ __webpack_require__.r(__webpack_exports__);
         $message.html('Enviando...');
         $message.addClass('warning');
         $message.show();
-        fetch('https://noshibari.com/wp-json/noshibari/subscribe', {
+        fetch('/wp-json/noshibari/subscribe', {
           method: 'POST',
           headers: {
             "Content-Type": "application/json"

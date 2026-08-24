@@ -55,7 +55,7 @@ export default $ => {
           $message.show()
 
           fetch(
-            'https://noshibari.com/wp-json/noshibari/subscribe',
+            '/wp-json/noshibari/subscribe',
             {
               method: 'POST',
               headers: {
