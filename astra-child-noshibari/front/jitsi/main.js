@@ -35111,9 +35111,32 @@ function _extends() { _extends = Object.assign ? Object.assign.bind() : function
 
 
 
+var IFRAME_ALLOW = ['camera *', 'microphone *', 'display-capture *', 'autoplay *', 'clipboard-write *', 'hid *', 'screen-wake-lock *', 'speaker-selection *', 'fullscreen *'].join('; ');
+
+var enableMediaOnIframe = function enableMediaOnIframe(root) {
+  var _root$querySelector;
+
+  var iframe = (root === null || root === void 0 ? void 0 : root.tagName) === 'IFRAME' ? root : root === null || root === void 0 ? void 0 : (_root$querySelector = root.querySelector) === null || _root$querySelector === void 0 ? void 0 : _root$querySelector.call(root, 'iframe');
+
+  if (!iframe) {
+    return;
+  }
+
+  iframe.setAttribute('allow', IFRAME_ALLOW);
+  iframe.setAttribute('allowfullscreen', 'true');
+  iframe.removeAttribute('sandbox');
+};
 
 var Jitsi = function Jitsi(props) {
   var handleApiReady = function handleApiReady(externalApi) {
+    var iframe = typeof externalApi.getIFrame === 'function' ? externalApi.getIFrame() : null;
+    enableMediaOnIframe(iframe);
+    externalApi.addListener('cameraError', function (e) {
+      return console.error('Jitsi cameraError', e);
+    });
+    externalApi.addListener('micError', function (e) {
+      return console.error('Jitsi micError', e);
+    });
     externalApi.addListener('videoConferenceJoined', function (e) {
       props.hideclose();
     });
@@ -35129,13 +35152,20 @@ var Jitsi = function Jitsi(props) {
     },
     configOverwrite: {
       disableLocalVideoFlip: true,
-      backgroundAlpha: 0.5
+      backgroundAlpha: 0.5,
+      disableDeepLinking: true,
+      startWithAudioMuted: false,
+      startWithVideoMuted: false,
+      prejoinConfig: {
+        enabled: true
+      }
     },
     interfaceConfigOverwrite: {
       VIDEO_LAYOUT_FIT: 'nocrop',
       MOBILE_APP_PROMO: false,
       TILE_VIEW_MAX_COLUMNS: 4
     },
+    getIFrameRef: enableMediaOnIframe,
     onApiReady: handleApiReady,
     onReadyToClose: props.close
   });
@@ -35229,20 +35259,21 @@ __webpack_require__.r(__webpack_exports__);
           if (response.status != 200) {
             $message.html(messageerror);
             $message.addClass('error');
-          } else {
-            $message.html(messageok);
-            $message.addClass('success');
+            $message.show();
+            setTimeout(function () {
+              $message.hide();
+              $form.show();
+              $inputemail.val('');
+            }, 2000);
+            return;
           }
 
+          $message.html(messageok);
+          $message.addClass('success');
           $message.show();
-          setTimeout(function () {
-            $message.hide();
-            $form.show();
-            $inputemail.val('');
-            response.json().then(function (credentials) {
-              return (0,_react__WEBPACK_IMPORTED_MODULE_0__["default"])($, credentials);
-            });
-          }, 2000);
+          return response.json().then(function (credentials) {
+            return (0,_react__WEBPACK_IMPORTED_MODULE_0__["default"])($, credentials);
+          });
         });
         return false;
       });

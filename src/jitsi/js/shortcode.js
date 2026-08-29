@@ -77,30 +77,27 @@ export default $ => {
 
               $message.html(messageerror)
               $message.addClass('error')
+              $message.show()
 
-            } else {
+              setTimeout(() => {
 
-              $message.html(messageok)
-              $message.addClass('success')
+                $message.hide()
+                $form.show()
+                $inputemail.val('')
+              }, 2000)
+
+              return
             }
-              
+
+            $message.html(messageok)
+            $message.addClass('success')
             $message.show()
 
-            setTimeout(() => {
-
-              $message.hide()
-              $form.show()
-              $inputemail.val('')
-
-              response.json()
-              .then(
-                credentials => startjitsi(
-                  $,
-                  credentials
-                )
-              )
-              
-            }, 2000)
+            return response.json()
+            .then(credentials => startjitsi(
+              $,
+              credentials
+            ))
           })
 
           return false

@@ -2,9 +2,53 @@ import React from 'react';
 import ReactDOM from 'react-dom/client'
 import { JaaSMeeting } from '@jitsi/react-sdk'
 
+const IFRAME_ALLOW = [
+  'camera *',
+  'microphone *',
+  'display-capture *',
+  'autoplay *',
+  'clipboard-write *',
+  'hid *',
+  'screen-wake-lock *',
+  'speaker-selection *',
+  'fullscreen *'
+].join('; ')
+
+const enableMediaOnIframe = root => {
+
+  const iframe = root?.tagName === 'IFRAME'
+    ? root
+    : root?.querySelector?.('iframe')
+
+  if (!iframe) {
+
+    return
+  }
+
+  iframe.setAttribute('allow', IFRAME_ALLOW)
+  iframe.setAttribute('allowfullscreen', 'true')
+  iframe.removeAttribute('sandbox')
+}
+
 const Jitsi = props => {
 
   const handleApiReady = (externalApi) => {
+
+    const iframe = typeof externalApi.getIFrame === 'function'
+      ? externalApi.getIFrame()
+      : null
+
+    enableMediaOnIframe(iframe)
+
+    externalApi.addListener(
+      'cameraError',
+      e => console.error('Jitsi cameraError', e)
+    )
+
+    externalApi.addListener(
+      'micError',
+      e => console.error('Jitsi micError', e)
+    )
     
     externalApi
     .addListener(
@@ -26,13 +70,20 @@ const Jitsi = props => {
     }}
     configOverwrite={{
       disableLocalVideoFlip: true,
-      backgroundAlpha: 0.5
+      backgroundAlpha: 0.5,
+      disableDeepLinking: true,
+      startWithAudioMuted: false,
+      startWithVideoMuted: false,
+      prejoinConfig: {
+        enabled: true
+      }
     }}
     interfaceConfigOverwrite = {{
       VIDEO_LAYOUT_FIT: 'nocrop',
       MOBILE_APP_PROMO: false,
       TILE_VIEW_MAX_COLUMNS: 4
     }}
+    getIFrameRef={ enableMediaOnIframe }
     onApiReady={ handleApiReady }
     onReadyToClose={ props.close }
   />
@@ -81,4 +132,4 @@ export default (
     hideclose={ hideclose } 
     close={ close }
   />);
-}  
+}   
