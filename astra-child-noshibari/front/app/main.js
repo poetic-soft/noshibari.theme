@@ -17664,6 +17664,7 @@ __webpack_require__.r(__webpack_exports__);
       var $this = $(this);
       var $form = $this.find('form');
       var $inputemail = $form.find('input#email');
+      var $inputname = $form.find('input#name');
       var $inputtitle = $form.find('input#title');
       var $button = $form.find('.wp-block-button');
       var $message = $this.find('.message');
@@ -17699,6 +17700,7 @@ __webpack_require__.r(__webpack_exports__);
           },
           body: JSON.stringify({
             email: $inputemail.val(),
+            name: $inputname.val(),
             title: $inputtitle.val()
           })
         }).then(function (response) {

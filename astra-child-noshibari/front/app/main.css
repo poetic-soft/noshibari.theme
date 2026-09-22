@@ -203,6 +203,9 @@ body.volvemos-pronto .wp-block-cover {
 .shortcode.subscribe form .field input:invalid:required {
   border: solid 2px rgb(158, 11, 0);
 }
+.shortcode.subscribe form .field input[type=text] {
+  display: none;
+}
 .shortcode.subscribe form .field label {
   display: block;
   margin: 8px 0 0 0;

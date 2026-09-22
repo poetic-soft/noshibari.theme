@@ -9,6 +9,7 @@ export default $ => {
       const $this = $(this)
       const $form = $this.find('form')
       const $inputemail = $form.find('input#email')
+      const $inputname = $form.find('input#name')
       const $inputtitle = $form.find('input#title')
       const $button = $form.find('.wp-block-button')
       const $message = $this.find('.message')
@@ -63,6 +64,7 @@ export default $ => {
               },
               body: JSON.stringify({
                 email: $inputemail.val(),
+                name: $inputname.val(),
                 title: $inputtitle.val()
               })
             }

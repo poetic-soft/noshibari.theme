@@ -37,6 +37,16 @@ add_shortcode(
             data-message-ok="'. $oktext . '" 
             required 
           />
+          <input 
+            id="name"
+            name="name"
+            type="text"
+            data-message-invalid="'. $invalidtext . '" 
+            data-message-error="'. $errortext . '"  
+            data-message-ok="'. $oktext . '" 
+            style="display: none;"
+            required 
+          />
           <input
             id="title"
             name="title"
