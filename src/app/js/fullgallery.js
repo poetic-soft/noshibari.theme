@@ -1,7 +1,7 @@
 import { shuffle } from 'lodash'
-import audio from 'assets/sound-c.mp3'
-const sonido = new Audio(audio)
-sonido.loop = true
+// import audio from 'assets/sound-c.mp3'
+// const sonido = new Audio(audio)
+// sonido.loop = true
 
 export default $ => {
 
@@ -48,7 +48,7 @@ export default $ => {
 
   window.fullgallery = (dir) => {
 
-    sonido.play()
+    //sonido.play()
 
     imagesdir = '/' + dir
 

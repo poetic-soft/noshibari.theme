@@ -1,17 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./astra-child-noshibari/assets/sound-c.mp3":
-/*!**************************************************!*\
-  !*** ./astra-child-noshibari/assets/sound-c.mp3 ***!
-  \**************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "/assets/sound-c.mp3";
-
-/***/ }),
-
 /***/ "./node_modules/lodash/lodash.js":
 /*!***************************************!*\
   !*** ./node_modules/lodash/lodash.js ***!
@@ -17317,11 +17306,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var assets_sound_c_mp3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! assets/sound-c.mp3 */ "./astra-child-noshibari/assets/sound-c.mp3");
+ // import audio from 'assets/sound-c.mp3'
+// const sonido = new Audio(audio)
+// sonido.loop = true
 
-
-var sonido = new Audio(assets_sound_c_mp3__WEBPACK_IMPORTED_MODULE_1__);
-sonido.loop = true;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function ($) {
   var images,
       actual = 0,
@@ -17360,7 +17348,7 @@ sonido.loop = true;
   };
 
   window.fullgallery = function (dir) {
-    sonido.play();
+    //sonido.play()
     imagesdir = '/' + dir;
     $('body').append("\n      <div id=\"fullgallery\">\n        <div class=\"container\">\n          <div class=\"slide A\"></div>\n          <div class=\"slide B\"></div>\n        </div>\n        <div class=\"close\"></div>\n      </div>\n      ");
     $page.css('display', 'none');
@@ -17831,11 +17819,6 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 			if (!module.children) module.children = [];
 /******/ 			return module;
 /******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
-/******/ 		__webpack_require__.p = "/wp-content/themes/astra-child-noshibari";
 /******/ 	})();
 /******/ 	
 /************************************************************************/

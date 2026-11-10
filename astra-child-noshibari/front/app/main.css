@@ -435,4 +435,8 @@ body.volvemos-pronto .wp-block-cover {
   padding-top: 0 !important;
 }
 
+.pswp__caption {
+  display: none;
+}
+
 /*# sourceMappingURL=main.css.map*/
